@@ -1,8 +1,9 @@
 class printMsg{
-	void print(String msg){
+	synchronized void print(String msg){
 		for(int i=0;i<11;i++){
 			System.out.println(msg+"  "+i);
 		}
+		sleep();
 	}
 }
 class demothread extends Thread{
@@ -12,8 +13,11 @@ class demothread extends Thread{
 		this.m=m;
 		this.msg=msg;
 	}
+synchronized{
+
+}
 	public void run(){
-	m.print(this.msg);
+		m.print(this.msg);
 	}
 }
 public class multidemo{
